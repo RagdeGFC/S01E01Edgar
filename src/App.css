@@ -35,21 +35,23 @@
 	background-color: #00000061;
 	clip-path: polygon(
 		50% 0%,
-		/* Parte superior central (cima del triángulo) */ 55% 10%,
-		/* Punta derecha del triángulo (más alta) */ 100% 45%,
+		/* Parte superior central (cima del triángulo superior) */ 52% 5%,
+		/* Punta derecha del triángulo superior */ 100% 45%,
 		/* Punta derecha del ala */ 85% 50%,
 		/* Centro derecho */ 100% 55%,
 		/* Punta derecha del ala inferior (más corta) */ 75% 70%,
 		/* Ala derecha inferior más redondeada */ 60% 100%,
-		/* Base derecha */ 50% 85%,
-		/* Parte inferior central */ 40% 100%,
+		/* Base derecha */ 52% 92%,
+		/* Parte inferior central del nuevo pico */ 50% 100%,
+		/* Cima del nuevo pico central */ 48% 92%,
+		/* Parte inferior central del nuevo pico (lado izquierdo) */ 40% 100%,
 		/* Base izquierda */ 25% 70%,
 		/* Ala izquierda inferior más redondeada */ 0% 55%,
 		/* Punta izquierda del ala inferior (más corta) */ 15% 50%,
 		/* Centro izquierdo */ 0% 45%,
-		/* Punta izquierda del ala */ 45% 10%,
-		/* Punta izquierda del triángulo (más alta) */ 50% 0%
-			/* Parte superior central (cima del triángulo) */
+		/* Punta izquierda del ala */ 48% 5%,
+		/* Punta izquierda del triángulo superior */ 50% 0%
+			/* Parte superior central */
 	);
 	backdrop-filter: brightness(0.5) blur(2px);
 	width: fit-content;
