@@ -23,7 +23,7 @@ function App() {
 			<div className="container">
 				{/* Encabezado */}
 				<h1 className="heading">
-					                        Frases de Batman:                        
+					_____________Frases de Batman:_____________
 					<br />
 				</h1>
 
