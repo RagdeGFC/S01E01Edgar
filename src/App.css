@@ -13,49 +13,67 @@
 }
 
 .container {
-	/* border: 3px solid red; */
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 0.25em;
 	padding: 2em 0;
-	max-width: 100%;
+	width: fit-content;
+	margin: 0 auto;
 	height: auto;
 }
 
-/* .container:hover {
-	transform: scale(1.2);
-	transition: transform 0.5s ease;
-} */
+.heading,
+.card,
+.btn {
+	position: relative;
+	overflow: hidden; /* Importante para contener el efecto */
+}
+
+.heading::before,
+.card::before,
+.btn::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(
+		120deg,
+		transparent,
+		rgba(255, 255, 255, 0.3),
+		transparent
+	);
+	transition: 0.5s;
+	pointer-events: none;
+}
+
+.heading:hover::before,
+.card:hover::before,
+.btn:hover::before {
+	left: 100%;
+}
 
 .heading {
-	color: #000000;
-	text-shadow: 1px 1px 5px rgb(255, 255, 255);
+	background-color: #000000ba;
+	border-radius: 15px;
+	font-family: roboto;
+	font-size: 35px;
+	font-weight: bold;
+	color: #ffffff;
 	text-align: center;
-	font-size: 2.5rem;
-	background-color: #00000061;
-	clip-path: polygon(
-		50% 0%,
-		/* Parte superior central (cima del triángulo superior) */ 52% 5%,
-		/* Punta derecha del triángulo superior */ 100% 45%,
-		/* Punta derecha del ala */ 85% 50%,
-		/* Centro derecho */ 100% 55%,
-		/* Punta derecha del ala inferior (más corta) */ 75% 70%,
-		/* Ala derecha inferior más redondeada */ 60% 100%,
-		/* Base derecha */ 52% 92%,
-		/* Parte inferior central del nuevo pico */ 50% 100%,
-		/* Cima del nuevo pico central */ 48% 92%,
-		/* Parte inferior central del nuevo pico (lado izquierdo) */ 40% 100%,
-		/* Base izquierda */ 25% 70%,
-		/* Ala izquierda inferior más redondeada */ 0% 55%,
-		/* Punta izquierda del ala inferior (más corta) */ 15% 50%,
-		/* Centro izquierdo */ 0% 45%,
-		/* Punta izquierda del ala */ 48% 5%,
-		/* Punta izquierda del triángulo superior */ 50% 0%
-			/* Parte superior central */
-	);
-	backdrop-filter: brightness(0.5) blur(2px);
+	-webkit-text-stroke: 0px #ffffff;
+	border: 2px solid #00ff2f;
 	width: fit-content;
+	padding: 0.2em 1em;
 	margin: 0 auto;
+}
+
+.heading:hover {
+	box-shadow: 0 0 25px 0 #000000bb;
+	border: 2px solid #ffffff;
+	color: #00ff2f;
 }
 
 .card {
@@ -72,7 +90,12 @@
 	height: auto;
 }
 
+.phrase :hover {
+	color: #1aff00;
+}
+
 .card:hover {
+	/* color: #1aff00; */
 	transform: scale(1.1);
 	transition: transform 1s ease;
 }
@@ -83,17 +106,31 @@
 	justify-content: center;
 	align-items: center;
 	max-width: 650px;
-	/* width: 650px; */
 	height: 100%;
 	padding: 0 2em;
 	margin: 0 auto;
 }
 
 .btn {
+	background-color: #000;
+	font-family: roboto;
+	font-size: 23px;
+	font-weight: bold;
 	color: #fff;
-	background-color: #000000c8;
-	border: 2px solid #ffffffcc;
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	border-radius: 15px;
 	width: fit-content;
+	padding: 0.2em 1em;
 	margin: 0 auto;
-	backdrop-filter: brightness(1.5) blur(5px);
+	transition: box-shadow 0.2s, color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+	background-color: #000;
+	color: #1aff00;
+	border: 2px solid #1aff00;
+	box-shadow: 0 0 8px #1aff00;
+	transform: scale(1.1);
+	transition: transform 0.5s ease;
 }

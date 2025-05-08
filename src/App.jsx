@@ -23,7 +23,7 @@ function App() {
 			<div className="container">
 				{/* Encabezado */}
 				<h1 className="heading">
-					_____________Frases de Batman:_____________
+					Frases de Batman:
 					<br />
 				</h1>
 
@@ -44,7 +44,6 @@ function App() {
 				<button onClick={changePhrase} className="btn">
 					Siguiente{' '}
 				</button>
-				{/* <pre>{JSON.stringify(phrases[0], null, 2)}</pre> */}
 			</div>
 		</div>
 	);
