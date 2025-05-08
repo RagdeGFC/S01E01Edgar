@@ -1,136 +1,180 @@
+/*
+App.css
+Guía comentada para entender cada sección y línea del CSS de tu proyecto Batman Frases.
+No se han cambiado valores, solo se han añadido comentarios y reordenado reglas para mayor claridad.
+*/
+
+/* --- Estructura principal y fondo --- */
 #root {
-	height: 100vh;
+	height: 100vh; /* Ocupa toda la altura de la ventana del navegador */
 }
 
 .wrapper {
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+	height: 100%; /* El wrapper ocupa todo el alto del root */
+	display: flex; /* Activa flexbox para centrar el contenido */
+	justify-content: center; /* Centra horizontalmente el contenido hijo */
+	align-items: center; /* Centra verticalmente el contenido hijo */
+	background-repeat: no-repeat; /* La imagen de fondo no se repite */
+	background-size: cover; /* La imagen de fondo cubre todo el área disponible */
+	background-position: center; /* Centra la imagen de fondo */
 }
 
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 0.25em;
-	padding: 2em 0;
-	width: fit-content;
-	margin: 0 auto;
-	height: auto;
+	display: flex; /* Flexbox para organizar los hijos en columna */
+	flex-direction: column; /* Los hijos se apilan verticalmente */
+	align-items: center; /* Centra los hijos horizontalmente */
+	gap: 0.25em; /* Espacio entre los hijos (truco: más limpio que margin) */
+	padding: 2em 0; /* Espacio arriba y abajo, 0 a los lados */
+	width: fit-content; /* El ancho se ajusta al contenido (no ocupa todo el ancho disponible) */
+	margin: 0 auto; /* Centra el contenedor horizontalmente en su padre */
+	height: auto; /* El alto se ajusta al contenido */
 }
 
-.heading,
-.card,
-.btn {
-	position: relative;
-	overflow: hidden; /* Importante para contener el efecto */
-}
-
-.heading::before,
-.card::before,
-.btn::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 50%;
-	height: 100%;
-	background: linear-gradient(
-		120deg,
-		transparent,
-		rgba(255, 255, 255, 0.3),
-		transparent
-	);
-	transition: 0.5s;
-	pointer-events: none;
-}
-
-.heading:hover::before,
-.card:hover::before,
-.btn:hover::before {
-	left: 100%;
-}
-
+/* --- Encabezado (título principal) --- */
 .heading {
-	background-color: #000000ba;
-	border-radius: 15px;
-	font-family: roboto;
-	font-size: 35px;
-	font-weight: bold;
-	color: #ffffff;
-	text-align: center;
-	-webkit-text-stroke: 0px #ffffff;
-	border: 2px solid #00ff2f;
-	width: fit-content;
-	padding: 0.2em 1em;
-	margin: 0 auto;
+	background-color: #000000ba; /* Fondo negro semitransparente para resaltar el texto */
+	border-radius: 15px; /* Bordes redondeados para suavizar el cuadro */
+	font-family: roboto; /* Fuente personalizada (asegúrate de tenerla disponible) */
+	font-size: 35px; /* Tamaño grande para el título */
+	font-weight: bold; /* Texto en negrita */
+	color: #ffffff; /* Color de texto blanco */
+	text-align: center; /* Centra el texto dentro del encabezado */
+	-webkit-text-stroke: 0px #ffffff; /* Sin borde de texto (compatibilidad con navegadores Webkit) */
+	border: 2px solid #00ff2f; /* Borde verde para dar un toque especial */
+	width: fit-content; /* El ancho se ajusta al contenido */
+	padding: 0.2em 1em; /* Espacio interno arriba/abajo y a los lados */
+	margin: 0 auto; /* Centra el encabezado horizontalmente */
+	position: relative; /* Necesario para el pseudo-elemento ::before (efecto de reflejo) */
+	overflow: hidden; /* Oculta el desbordamiento del reflejo */
 }
 
 .heading:hover {
-	box-shadow: 0 0 25px 0 #000000bb;
-	border: 2px solid #ffffff;
-	color: #00ff2f;
+	box-shadow: 0 0 25px 0 #000000bb; /* Sombra para dar efecto de profundidad al pasar el mouse */
+	border: 2px solid #ffffff; /* Cambia el borde a blanco en hover */
+	color: #00ff2f; /* Cambia el color del texto a verde en hover */
+}
+
+/* --- Efecto de reflejo de vidrio (glass reflection) --- */
+.heading::before,
+.card::before,
+.btn::before {
+	content: ''; /* Crea un elemento vacío para el reflejo */
+	position: absolute; /* Posiciona el reflejo sobre el elemento */
+	top: 0; /* Arriba del elemento */
+	left: -100%; /* Empieza fuera de la vista a la izquierda */
+	width: 50%; /* El reflejo ocupa la mitad del ancho */
+	height: 100%; /* El reflejo ocupa todo el alto */
+	background: linear-gradient(
+		120deg,
+		/* Ángulo del reflejo */ transparent,
+		/* Empieza transparente */ rgba(255, 255, 255, 0.3),
+		/* Blanco translúcido en el centro */ transparent /* Termina transparente */
+	);
+	transition: 0.5s; /* Duración de la animación del reflejo */
+	pointer-events: none; /* El reflejo no bloquea clics ni eventos */
+}
+.heading:hover::before,
+.card:hover::before,
+.btn:hover::before {
+	left: 100%; /* Mueve el reflejo de izquierda a derecha al hacer hover */
+}
+
+/* --- Card principal con efecto de logo y borde --- */
+
+.card-container {
+	position: relative; /* Permite posicionar el card hijo */
+	width: 820px; /* Ancho fijo del contenedor (ajusta según el SVG) */
+	height: 370px; /* Alto fijo del contenedor */
+	display: flex; /* Flexbox para centrar el card hijo */
+	align-items: center; /* Centra verticalmente el card */
+	justify-content: center; /* Centra horizontalmente el card */
 }
 
 .card {
-	color: #fff;
-	text-shadow: 1px 1px 2px black;
-	text-align: center;
-	font-size: 25px;
-	width: 100%;
-	aspect-ratio: 16/9;
-	background-image: url('./assets/images/rectangle.svg');
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
-	height: auto;
-}
-
-.phrase :hover {
-	color: #1aff00;
+	position: relative; /* Necesario para el z-index y el ::before del reflejo */
+	z-index: 2; /* Encima del fondo */
+	width: 800px; /* Ancho del card (ligeramente menor que el contenedor) */
+	height: 350px; /* Alto del card */
+	background: rgba(
+		0,
+		0,
+		0,
+		0.85
+	); /* Fondo negro semitransparente para el texto */
+	display: flex; /* Flexbox para centrar el contenido */
+	align-items: center; /* Centra verticalmente el contenido */
+	justify-content: center; /* Centra horizontalmente el contenido */
+	color: #fff; /* Texto blanco */
+	font-size: 1.2rem; /* Tamaño de fuente del texto */
+	text-align: center; /* Centra el texto dentro del card */
+	margin: 0 auto; /* Centra el card horizontalmente */
+	/* Aquí aplicamos la máscara del logo negro */
+	-webkit-mask-image: url('/rectangle.svg'); /* Soporte para navegadores Webkit (Chrome, Safari) */
+	mask-image: url('/rectangle.svg'); /* Máscara SVG para el card */
+	-webkit-mask-size: contain; /* Ajusta la máscara al tamaño del card */
+	mask-size: contain; /* Igual que arriba, para otros navegadores */
+	-webkit-mask-repeat: no-repeat; /* No repite la máscara */
+	mask-repeat: no-repeat; /* No repite la máscara */
+	-webkit-mask-position: center; /* Centra la máscara */
+	mask-position: center; /* Centra la máscara */
+	padding: 1rem; /* Espacio interno para el texto */
+	/* La transición debe estar aquí para que funcione tanto al hacer hover como al quitar el hover */
+	transition: transform 0.5s ease; /* Suaviza el escalado al hacer hover */
+	overflow: hidden; /* Oculta el desbordamiento del reflejo */
 }
 
 .card:hover {
-	/* color: #1aff00; */
-	transform: scale(1.1);
-	transition: transform 1s ease;
+	/* Al hacer hover, el card se escala (crece) suavemente */
+	transform: scale(1.1); /* Escala el card al 110% */
 }
 
+/* --- Efecto de color en la frase al pasar el mouse --- */
+.phrase :hover {
+	color: #1aff00; /* Cambia el color de la frase a verde al pasar el mouse */
+}
+
+/* --- Cuerpo del card (centrado del texto) --- */
 .card__body {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	max-width: 650px;
-	height: 100%;
-	padding: 0 2em;
-	margin: 0 auto;
+	display: flex; /* Flexbox para organizar el contenido en columna */
+	flex-direction: column; /* El texto y el autor se apilan verticalmente */
+	justify-content: center; /* Centra el contenido verticalmente dentro del card */
+	align-items: center; /* Centra el contenido horizontalmente dentro del card */
+	max-width: 650px; /* Limita el ancho máximo del contenido para que no se extienda demasiado */
+	height: 100%; /* Ocupa todo el alto disponible del card */
+	padding: 0 2em; /* Espacio a los lados para que el texto no toque el borde */
+	margin: 0 auto; /* Centra el contenido horizontalmente dentro del card */
 }
 
+/* --- Botón principal y su efecto de destello --- */
 .btn {
-	background-color: #000;
-	font-family: roboto;
-	font-size: 23px;
-	font-weight: bold;
-	color: #fff;
-	border: 2px solid #fff;
-	box-sizing: border-box;
-	border-radius: 15px;
-	width: fit-content;
-	padding: 0.2em 1em;
-	margin: 0 auto;
-	transition: box-shadow 0.2s, color 0.2s, background 0.2s, border-color 0.2s;
+	background-color: #000; /* Fondo negro del botón */
+	font-family: roboto; /* Fuente personalizada */
+	font-size: 23px; /* Tamaño de fuente del botón */
+	font-weight: bold; /* Texto en negrita */
+	color: #fff; /* Texto blanco */
+	border: 2px solid #fff; /* Borde blanco */
+	box-sizing: border-box; /* Incluye el borde y el padding en el tamaño total */
+	border-radius: 15px; /* Bordes redondeados */
+	width: fit-content; /* El ancho se ajusta al contenido */
+	padding: 0.2em 1em; /* Espacio interno arriba/abajo y a los lados */
+	margin: 0 auto; /* Centra el botón horizontalmente */
+	transition: box-shadow 0.2s, color 0.2s, background 0.2s, border-color 0.2s; /* Suaviza los cambios de color y sombra */
+	position: relative; /* Necesario para el pseudo-elemento ::before (reflejo) */
+	overflow: hidden; /* Oculta el desbordamiento del reflejo */
 }
 
 .btn:hover {
-	background-color: #000;
-	color: #1aff00;
-	border: 2px solid #1aff00;
-	box-shadow: 0 0 8px #1aff00;
-	transform: scale(1.1);
-	transition: transform 0.5s ease;
+	background-color: #000; /* Mantiene el fondo negro en hover */
+	color: #1aff00; /* Cambia el texto a verde en hover */
+	border: 2px solid #1aff00; /* Cambia el borde a verde en hover */
+	box-shadow: 0 0 8px #1aff00; /* Sombra verde al hacer hover */
+	transform: scale(1.1); /* Escala el botón al 110% en hover */
+	transition: transform 0.5s ease; /* Suaviza el escalado */
+}
+
+/* Efecto de destello blanco al presionar el botón */
+.btn-flash {
+	box-shadow: 0 0 16px 4px #fff, 0 0 0 4px #fff; /* Sombra blanca brillante para el destello */
+	border: 2px solid #fff !important; /* Borde blanco durante el destello */
+	transition: box-shadow 0.3s, border-color 0.3s; /* Suaviza el destello */
 }

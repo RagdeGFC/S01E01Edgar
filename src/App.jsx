@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9 } from './assets/images/';
 import phrases from './phrases.json';
 import './App.css';
@@ -12,10 +12,17 @@ function randomIndex(max) {
 function App() {
 	const [phrase, setPhrase] = useState(phrases[randomIndex(phrases.length)]);
 	const [img, setImg] = useState(images[randomIndex(images.length)]);
+	const btnRef = useRef(null);
 
 	function changePhrase() {
 		setPhrase(phrases[randomIndex(phrases.length)]);
 		setImg(images[randomIndex(images.length)]);
+		if (btnRef.current) {
+			btnRef.current.classList.add('btn-flash');
+			setTimeout(() => {
+				btnRef.current.classList.remove('btn-flash');
+			}, 300);
+		}
 	}
 
 	return (
@@ -41,7 +48,7 @@ function App() {
 				</div>
 
 				{/* Boton */}
-				<button onClick={changePhrase} className="btn">
+				<button ref={btnRef} onClick={changePhrase} className="btn">
 					Siguiente{' '}
 				</button>
 			</div>
