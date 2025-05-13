@@ -184,8 +184,8 @@ No se han cambiado valores, solo se han añadido comentarios y reordenado reglas
 /* Para tablets y pantallas medianas */
 @media screen and (max-width: 860px) {
 	.container {
-		padding: 1em;
-		width: 90%;
+		padding: 1.5em;
+		width: 100%;
 	}
 
 	.heading {
@@ -206,8 +206,8 @@ No se han cambiado valores, solo se han añadido comentarios y reordenado reglas
 	}
 
 	.phrase {
-		font-size: 0.95rem; /* Ajustar el tamaño de la frase */
-		line-height: 1.4; /* Mejorar la legibilidad */
+		font-size: 0.9rem; /* Ajustar el tamaño de la frase */
+		line-height: 1; /* Mejorar la legibilidad */
 	}
 }
 
@@ -224,7 +224,7 @@ No se han cambiado valores, solo se han añadido comentarios y reordenado reglas
 
 	.card {
 		min-height: 250px;
-		font-size: 0.7rem; /* Reducir aún más el tamaño base */
+		font-size: 1rem; /* Reducir aún más el tamaño base */
 	}
 
 	.card__body {
@@ -232,8 +232,8 @@ No se han cambiado valores, solo se han añadido comentarios y reordenado reglas
 	}
 
 	.phrase {
-		font-size: 0.85rem;
-		line-height: 1.3;
+		font-size: 0.5rem;
+		line-height: 1.4;
 		padding: 0 0.5em;
 	}
 
@@ -255,11 +255,11 @@ No se han cambiado valores, solo se han añadido comentarios y reordenado reglas
 
 	.card {
 		min-height: 200px;
-		font-size: 0.5rem;
+		font-size: 0.4rem;
 	}
 
 	.phrase {
-		font-size: 0.75rem;
-		line-height: 1.2;
+		font-size: 0.3rem;
+		line-height: 1;
 	}
 }
