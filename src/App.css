@@ -178,3 +178,88 @@ No se han cambiado valores, solo se han añadido comentarios y reordenado reglas
 	border: 2px solid #fff !important; /* Borde blanco durante el destello */
 	transition: box-shadow 0.3s, border-color 0.3s; /* Suaviza el destello */
 }
+
+/* Media queries*/
+
+/* Para tablets y pantallas medianas */
+@media screen and (max-width: 860px) {
+	.container {
+		padding: 1em;
+		width: 90%;
+	}
+
+	.heading {
+		font-size: 28px;
+		padding: 0.2em 0.8em;
+	}
+
+	.card {
+		width: 100%;
+		height: auto;
+		min-height: 300px;
+		font-size: 1rem; /* Reducir el tamaño base de fuente del card */
+	}
+
+	.card__body {
+		padding: 1em;
+		max-width: 100%;
+	}
+
+	.phrase {
+		font-size: 0.95rem; /* Ajustar el tamaño de la frase */
+		line-height: 1.4; /* Mejorar la legibilidad */
+	}
+}
+
+/* Para móviles */
+@media screen and (max-width: 480px) {
+	.container {
+		padding: 0.5em;
+	}
+
+	.heading {
+		font-size: 24px;
+		padding: 0.2em 0.6em;
+	}
+
+	.card {
+		min-height: 250px;
+		font-size: 0.7rem; /* Reducir aún más el tamaño base */
+	}
+
+	.card__body {
+		padding: 0.8em;
+	}
+
+	.phrase {
+		font-size: 0.85rem;
+		line-height: 1.3;
+		padding: 0 0.5em;
+	}
+
+	.author {
+		font-size: 0.8rem;
+	}
+
+	.btn {
+		font-size: 18px;
+		padding: 0.2em 0.8em;
+	}
+}
+
+/* Para pantallas muy pequeñas */
+@media screen and (max-width: 320px) {
+	.heading {
+		font-size: 20px;
+	}
+
+	.card {
+		min-height: 200px;
+		font-size: 0.5rem;
+	}
+
+	.phrase {
+		font-size: 0.75rem;
+		line-height: 1.2;
+	}
+}
